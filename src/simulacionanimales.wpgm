@@ -9,28 +9,43 @@ program animales {
 	/*
 	 * agregamos personajes
 	 */ 
-	var animalActual = new Gallina()
+	var vaca = new Vaca()
+	var gallina = new Gallina()
+	var animalActual = vaca
 	game.addVisual(animalActual)
 
 	/*
 	 * configuraciones de teclado
 	 */
 	keyboard.c().onPressDo({animalActual.comer(12)})
-	keyboard.p().onPressDo({game.say(animalActual, animalActual.peso().toString()) })
-	keyboard.p().onPressDo({game.say(animalActual, "Hola, soy una vaquita" )})
-	keyboard.b().onPressDo({animalActual.beber()})
-	keyboard.s().onPressDo({const mensaje = if(animalActual.sed()){"tengo sed"}else{"no tengo sed"} game.say(animalActual, mensaje))
+	keyboard.p().onPressDo({game.say(animalActual, animalActual.peso().toString())})
 	
-	//keyboard.up().onPressdo{}
-	//keyboard.down().onPressdo()
-	//keyboard.left().onPressdo()
-	//keyboard.right().onPressdo()
-	
-	
+	keyboard.q().onPressDo({if (animalActual == vaca){
+		game.say(animalActual, "Hola, soy una vaquita" )}
+		else{game.say(animalActual, "Hola, soy una gallinita" )}
+	})
 		
-	}
+	keyboard.b().onPressDo({animalActual.beber()})
+	
+	keyboard.s().onPressDo({const mensaje = if(animalActual.tieneSed())
+		{"tengo sed"}
+		else{"no tengo sed"} game.say(animalActual, mensaje)
+	})
+	
+	keyboard.r().onPressDo({game.removeVisual(animalActual) if(animalActual == vaca)
+		{animalActual=gallina}
+		else{animalActual= vaca} game.addVisual(animalActual) 
+	})
+	
+	keyboard.up().onPressDo{animalActual.position(animalActual.position().up(1))}
+	keyboard.down().onPressDo{animalActual.position(animalActual.position().down(1))}
+	keyboard.left().onPressDo{animalActual.position(animalActual.position().left(1))}
+	keyboard.right().onPressDo{animalActual.position(animalActual.position().right(1))}
+
+	
 	/*
 	 * arrancamos el juego
 	 */
 	 game.start()
 }
+

@@ -9,7 +9,7 @@ class Vaca {
 	
 	method peso(){return peso}
 	
-	method sed(){return sed}
+	method tieneSed(){return sed}
 	
 	method comer(algo){sed = true  peso += algo/2 }
 	
@@ -23,11 +23,14 @@ class Gallina {
 
 	const property peso = 4
 
-	var property comer = comer + 1
+	var property comio = 0
 
 	method peso(){return peso}
 	
+	method comer(a){comio+= 1}
 		
-	method tieneSed(){return (comer == 2 or comer == 5)}
+	method tieneSed(){if (comio > 5){comio = 1} return (comio == 2 or comio == 5) }
+	
+	method beber(){ }
 	
 }
