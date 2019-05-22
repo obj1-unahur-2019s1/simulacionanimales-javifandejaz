@@ -15,6 +15,21 @@ class Vaca {
 	
 	method beber(){sed = false  peso -= 1 }
 	
+	method subir(){keyboard.up().onPressDo{self.position(self.position().up(1))}
+		peso=(peso*0.95).max(50)
+	}
+	
+	method bajar(){keyboard.up().onPressDo{self.position(self.position().down(1))}
+		peso=(peso*0.95).max(50)
+	}
+	
+	method derecha(){keyboard.up().onPressDo{self.position(self.position().lefth(1))}
+		peso=(peso*0.95).max(50)
+	}
+	
+	method izquierda(){keyboard.up().onPressDo{self.position(self.position().right(1))}
+		peso=(peso*0.95).max(50)
+	}
 }
 
 class Gallina {

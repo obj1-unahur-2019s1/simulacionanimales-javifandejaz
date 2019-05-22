@@ -37,10 +37,10 @@ program animales {
 		else{animalActual= vaca} game.addVisual(animalActual) 
 	})
 	
-	keyboard.up().onPressDo{animalActual.position(animalActual.position().up(1))}
-	keyboard.down().onPressDo{animalActual.position(animalActual.position().down(1))}
-	keyboard.left().onPressDo{animalActual.position(animalActual.position().left(1))}
-	keyboard.right().onPressDo{animalActual.position(animalActual.position().right(1))}
+	keyboard.up().onPressDo({animalActual.subir()})
+	keyboard.down().onPressDo({animalActual.bajar()})
+	keyboard.left().onPressDo({animalActual.derecha()})
+	keyboard.right().onPressDo({animalActual.izquierda()})
 
 	
 	/*
